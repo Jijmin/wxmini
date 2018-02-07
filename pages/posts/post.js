@@ -1,3 +1,4 @@
+var postsData = require('../../data/posts-data.js');
 Page({
   data: {
     imgUrls: [{// banner数据
@@ -15,10 +16,14 @@ Page({
     interval: 5000,
     vertical: false
   },
+  onLoad: function () {
+    this.setData({
+      postList: postsData.postList
+    });
+  },
   /* banner图点击事件 */
-  onSwiperTap: function (event){
-    // target：指的是当前点击组件
-    // currentTarget：指的是事件捕获的组件
+  onSwiperTap: function (event) {
+    // target：指的是当前点击组件，currentTarget：指的是事件捕获的组件
     var postId = event.target.dataset.postid;
     // TODO: 跳转详情页
   }

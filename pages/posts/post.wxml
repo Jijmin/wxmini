@@ -13,5 +13,7 @@
     </swiper-item>
     </block>
   </swiper>
-  <template is='postItem' />
+  <block wx:for="{{postList}}" wx:key="item.postId">
+    <template is='postItem' data="{{...item}}" />
+  </block>
 </view>

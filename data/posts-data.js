@@ -1,6 +1,6 @@
 var local_database = [
   {
-    date: "Sep 18 2016",
+    date: "Sep 18 2017",
     title: "正是虾肥蟹壮时",
     imgSrc: "/images/post/crab.png",
     avatar: "/images/avatar/1.png",
@@ -28,7 +28,7 @@ var local_database = [
     dateTime: "24小时前",
     headImgSrc: "/images/post/bl.png",
     author: "迷的城",
-    date: "Nov 20 2016",
+    date: "Nov 20 2017",
     avatar: "/images/avatar/1.png",
     postId: 1,
     music: {
@@ -47,7 +47,7 @@ var local_database = [
     reading: 62,
     collection: 92,
     author: "知乎",
-    date: "Nov 12 2016",
+    date: "Nov 12 2017",
     dateTime: "三天前",
     avatar: "/images/avatar/3.png",
     postId: 2,
@@ -67,7 +67,7 @@ var local_database = [
     dateTime: "24小时前",
     headImgSrc: "/images/post/xiaolong.jpg",
     author: "猫是猫的猫",
-    date: "Nov 20 2016",
+    date: "Nov 20 2017",
     avatar: "/images/avatar/5.png",
     postId: 3,
     music: {
@@ -86,7 +86,7 @@ var local_database = [
     dateTime: "24小时前",
     headImgSrc: "/images/post/vr.png",
     author: "深白色",
-    date: "Nov 20 2016",
+    date: "Nov 20 2017",
     avatar: "../../../images/avatar/3.png",
     postId: 4,
     music: {
@@ -105,7 +105,7 @@ var local_database = [
     dateTime: "21小时前",
     headImgSrc: "/images/iqiyi.png",
     author: "深白色",
-    date: "Nov 20 2016",
+    date: "Nov 20 2017",
     avatar: "../../../images/avatar/5.png",
     postId: 5,
     music: {
