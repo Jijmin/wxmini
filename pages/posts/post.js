@@ -21,10 +21,18 @@ Page({
       postList: postsData.postList
     });
   },
+  onPostTap: function (event) { 
+    var postId = event.currentTarget.dataset.postid;
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id=' + postId
+    });
+  },
   /* banner图点击事件 */
   onSwiperTap: function (event) {
     // target：指的是当前点击组件，currentTarget：指的是事件捕获的组件
     var postId = event.target.dataset.postid;
-    // TODO: 跳转详情页
+    wx.navigateTo({
+      url: 'post-detail/post-detail?id=' + postId
+    });
   }
 })

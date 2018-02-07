@@ -1,5 +1,5 @@
 <import src='post-item/post-item-template.wxml' />
-<view>
+<view class='container'>
   <swiper
     catchtap='onSwiperTap'
     vertical="{{vertical}}" 
@@ -14,6 +14,8 @@
     </block>
   </swiper>
   <block wx:for="{{postList}}" wx:key="item.postId">
-    <template is='postItem' data="{{...item}}" />
+    <view catchtap='onPostTap' data-postId="{{item.postId}}">
+      <template is='postItem' data="{{...item}}" />
+    </view>
   </block>
 </view>
