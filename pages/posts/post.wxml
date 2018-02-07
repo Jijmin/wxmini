@@ -1,0 +1,15 @@
+<view>
+  <swiper
+    catchtap='onSwiperTap'
+    vertical="{{vertical}}" 
+    indicator-dots="{{indicatorDots}}" 
+    autoplay="{{autoplay}}" 
+    interval="{{interval}}"
+  >
+    <block wx:for="{{imgUrls}}" wx:key="{{item.postId}}">
+    <swiper-item>
+      <image src='{{item.url}}' data-postId='{{item.postId}}'></image>
+    </swiper-item>
+    </block>
+  </swiper>
+</view>
