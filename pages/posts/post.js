@@ -1,6 +1,7 @@
 var postsData = require('../../data/posts-data.js');
 Page({
   data: {
+    postList: [],
     imgUrls: [{// banner数据
       url: '/images/wx.png',
       postId: 3
