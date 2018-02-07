@@ -1,0 +1,8 @@
+<!--pages/welcome/welcome.wxml-->
+<view class='container'>
+  <image class='avatar' src=''></image>
+  <text class='motto'>Hello, Jijmin</text>
+  <view class='journey-container'>
+    <text class='journey'>开启小程序之旅</text>
+  </view>
+</view>
