@@ -1,3 +1,4 @@
+<import src='post-item/post-item-template.wxml' />
 <view>
   <swiper
     catchtap='onSwiperTap'
@@ -12,4 +13,5 @@
     </swiper-item>
     </block>
   </swiper>
+  <template is='postItem' />
 </view>
