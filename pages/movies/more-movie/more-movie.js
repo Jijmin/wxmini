@@ -32,11 +32,27 @@ Page({
     this.data.requestUrl = dataUrl;
     util.http(dataUrl, this.processDoubanData);
   },
-  onScrollLower: function (event){// 滚动到底部加载新数据
-    var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
-    util.http(nextUrl, this.processDoubanData);
+  onPullDownRefresh: function(){// 下拉刷新
+    var refreshUrl = this.data.requestUrl +
+      "?star=0&count=20";
+    this.data.movies = {};
+    this.data.isEmpty = true;
+    this.data.totalCount = 0;
+    util.http(refreshUrl, this.processDoubanData);
+    wx.showNavigationBarLoading();
+  },
+  onReachBottom: function (event) {
+    var nextUrl = this.data.requestUrl +
+      "?start=" + this.data.totalCount + "&count=20";
+    util.http(nextUrl, this.processDoubanData)
     wx.showNavigationBarLoading()
   },
+  // scroll-view和onPullDownRefresh冲突
+  // onScrollLower: function (event){// 滚动到底部加载新数据
+  //   var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
+  //   util.http(nextUrl, this.processDoubanData);
+  //   wx.showNavigationBarLoading()
+  // },
   processDoubanData: function (moviesDouban){// 电影数据格式的处理
     var movies = [];
     for (var idx in moviesDouban.subjects){
