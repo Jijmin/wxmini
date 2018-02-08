@@ -6,6 +6,9 @@ Page({
     isPlayingMusic: false,
     collected: false
   },
+  onShareAppMessage: function () {// 用户点击右上角分享
+    
+  },
   onLoad: function (option) {
     var postId = option.id;
     this.data.currentPostId = postId;
@@ -125,6 +128,7 @@ Page({
     })
   },
   onShareTap: function (event) {// 分享
+    var that = this;
     var itemList = [
       "分享给微信好友",
       "分享到朋友圈",
@@ -139,7 +143,7 @@ Page({
         wx.showModal({
           title: '用户' + itemList[res.tapIndex],
           content: '用户是否取消？' + res.cancel + '现在无法实现分享功能，什么时候能支持呢',
-        })
+        });
       }
     });
   }
