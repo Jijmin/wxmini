@@ -32,6 +32,17 @@ Page({
     this.data.requestUrl = dataUrl;
     util.http(dataUrl, this.processDoubanData);
   },
+  onReady: function(){
+    wx.setNavigationBarTitle({
+      title: this.data.navigateTitle
+    });
+  },
+  onMovieTap: function(event){
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + movieId
+    })
+  },
   onPullDownRefresh: function(){// 下拉刷新
     var refreshUrl = this.data.requestUrl +
       "?star=0&count=20";

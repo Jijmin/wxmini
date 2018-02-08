@@ -1,6 +1,6 @@
 function convertToStarsArray(stars) {
   var result = [];// 存放星星状态的数组
-  var score = stars/10;// 评分转换
+  var score = stars / 10;// 评分转换
   var num = Math.floor(score * 2) / 2;// 可以计算出哪些分数有半星
   var hasDecimal = score % 1 !== 0;// 判断是否有半星
   var integer = Math.floor(score);// 获取到全星的部分
@@ -15,14 +15,14 @@ function convertToStarsArray(stars) {
   }
   return result;
 }
-function http(url, callback){
+function http(url, callback) {
   wx.request({
     url: url,
     method: 'GET',
     header: {
       "Content-Type": "json"
     },
-    success: function (res){
+    success: function (res) {
       callback(res.data);
     },
     fail: function (error) {
@@ -30,7 +30,28 @@ function http(url, callback){
     }
   })
 }
+function convertToCastString(casts) {
+  var castsjoin = "";
+  for (var idx in casts) {
+    castsjoin = castsjoin + casts[idx].name + " / ";
+  }
+  return castsjoin.substring(0, castsjoin.length - 2);
+}
+
+function convertToCastInfos(casts) {
+  var castsArray = []
+  for (var idx in casts) {
+    var cast = {
+      img: casts[idx].avatars ? casts[idx].avatars.large : "",
+      name: casts[idx].name
+    }
+    castsArray.push(cast);
+  }
+  return castsArray;
+}
 module.exports = {
   convertToStarsArray: convertToStarsArray,
-  http: http
+  http: http,
+  convertToCastString: convertToCastString,
+  convertToCastInfos: convertToCastInfos
 }

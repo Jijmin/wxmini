@@ -11,6 +11,12 @@ Page({
     this.getMovieListData(comingSoonUrl, "comingSoon", "即将上映");
     this.getMovieListData(top250Url, "top250", "豆瓣Top250");
   },
+  onMovieTap: function(event){
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: './movie-detail/movie-detail?id=' + movieId
+    })
+  },
   onMoreTap: function(event){// 点击更多
     // 获取到列表组件传递回来的data-category
     var category = event.currentTarget.dataset.category;
