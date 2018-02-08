@@ -18,7 +18,11 @@
         src='{{collected?"/images/icon/collection-anti.png":"/images/icon/collection.png"}}'
         catchtap='onColletionTap'
       ></image>
-      <image src='/images/icon/share.png' class='share-img'></image>
+      <image 
+        src='/images/icon/share.png' 
+        class='share-img'
+        catchtap='onShareTap'
+      ></image>
     </view>
     <view class='horizon'></view>
   </view>

@@ -26,28 +26,46 @@ Page({
       wx.setStorageSync('posts_collected', postsCollected);
     }
     // 控制点击播放之后退出后又回到这个播放页面时播放图标的显示
-    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId === postId){
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId === postId) {
       this.setData({
         isPlayingMusic: true
       });
     }
     this.setMusicMonitor();
   },
-  setMusicMonitor: function(){
+  setMusicMonitor: function () {
     // 点击播放图标和总控开关都会触发这个函数
     var that = this;
-    wx.onBackgroundAudioPlay(function(event){
+    wx.onBackgroundAudioPlay(function () {
       var pages = getCurrentPages();
       var currentPage = pages[pages.length - 1];
-      if (currentPage.data.currentPostId === that.data.currentPostId){
+      if (currentPage.data.currentPostId === that.data.currentPostId) {
         // 打开多个post-detail页面之后,每个页面不会关闭,只会隐藏。通过页面栈拿到当前页面的postid,只处理当前页面的音乐播放
-        if (app.globalData.g_currentMusicPostId == that.data.currentPostId){
+        if (app.globalData.g_currentMusicPostId == that.data.currentPostId) {
           that.setData({
             isPlayingMusic: true
           });
         }
       }
       app.globalData.g_isPlayingMusic = true;
+    });
+    wx.onBackgroundAudioPause(function(){
+      var pages = getCurrentPages();
+      var currentPage = pages[pages.length - 1];
+      if (currentPage.data.currentPostId == that.data.currentPostId){
+        if (app.globalData.g_currentMusicPostId == that.data.currentPostId){
+          that.setData({
+            isPlayingMusic: false
+          });
+        }
+      }
+      app.globalData.g_isPlayingMusic = true;
+    });
+    wx.onBackgroundAudioStop(function(){
+      that.setData({
+        isPlayingMusic: false
+      });
+      app.globalData.g_isPlayingMusic = false;
     });
   },
   onMusicTap: function (event) {// 点击音乐播放器
@@ -81,7 +99,7 @@ Page({
     var that = this;
     wx.getStorage({
       key: 'posts_collected',
-      success: function(res) {
+      success: function (res) {
         var postsCollected = res.data;
         var postCollected = postsCollected[that.data.currentPostId];
         // 收藏toggle
@@ -92,7 +110,7 @@ Page({
       },
     })
   },
-  showToast: function (postsCollected, postCollected){// 修改缓存数据
+  showToast: function (postsCollected, postCollected) {// 修改缓存数据
     // 更新文章的缓存值
     wx.setStorageSync('posts_collected', postsCollected);
     // 更新数据绑定变量，从而实现图片的切换
@@ -105,5 +123,8 @@ Page({
       duration: 1000,
       icon: "success"
     })
+  },
+  onShareTap: function(event){// 分享
+    
   }
 })
