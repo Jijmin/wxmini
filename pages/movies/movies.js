@@ -1,7 +1,14 @@
 var util = require('../../utils/util.js');
 var app = getApp();
 Page({
-  data: {},
+  data: {
+    inTheaters: {},
+    comingSoon: {},
+    top250: {},
+    searchResult: {},
+    containerShow: true,
+    searchPanelShow: false
+  },
   onLoad: function(){
     var inTheatersUrl = app.globalData.doubanBase + '/v2/movie/in_theaters?start=0&count=3';// 正在热映
     var comingSoonUrl = app.globalData.doubanBase + '/v2/movie/coming_soon?start=0&count=3';// 即将上映
@@ -10,6 +17,17 @@ Page({
     this.getMovieListData(inTheatersUrl, 'inTheatersc', '正在热映');
     this.getMovieListData(comingSoonUrl, "comingSoon", "即将上映");
     this.getMovieListData(top250Url, "top250", "豆瓣Top250");
+  },
+  onBindFocus: function(event){// 搜索框聚焦
+    this.setData({
+      containerShow: false,
+      searchPanelShow: true
+    });
+  },
+  onBindBlur: function(event){// 搜索框失焦
+    var text = event.detail.value;
+    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    this.getMovieListData(searchUrl, "searchResult", "");
   },
   onMovieTap: function(event){
     var movieId = event.currentTarget.dataset.movieid;
@@ -40,6 +58,13 @@ Page({
         console.log(error)
       }
     })
+  },
+  onCancelImgTap: function(event){// 关闭搜索框
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false,
+      searchResult: {}
+    });
   },
   processDoubanData: function (moviesDouban, settedKey, categoryTitle){
     var movies = [];
