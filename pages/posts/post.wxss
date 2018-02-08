@@ -1,6 +1,6 @@
 @import "post-item/post-item-template.wxss";
 .container{
-  background-color: #eee;
+  background-color: #f2f2f2;
 }
 swiper{
      width:100%;

@@ -1,0 +1,8 @@
+<import src='../stars/stars-template.wxml' />
+<template name='movieTemplate'>
+  <view class='movie-container'>
+    <image class='movie-img' src='https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2508925590.webp'></image>
+    <text class='movie-title'>阿德瓦·香登</text>
+    <template is='starsTemplate' />
+  </view>
+</template>

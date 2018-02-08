@@ -1,3 +1,4 @@
+<import src="movie-list/movie-list-template.wxml" />
 <view class='search'>
   <icon type='search' class='search-img' size='13' color='#405f80'></icon>
   <input type='text' placeholder='釜山行、夏有乔木雅望天堂' placeholder-class='placeholder'></input>
@@ -5,7 +6,13 @@
 </view>
 <view class='container'>
   <view class='movies-template'>
-    
+    <template is='movieListTemplate'></template>
+  </view>
+  <view class='movies-template'>
+    <template is='movieListTemplate'></template>
+  </view>
+  <view class='movies-template'>
+    <template is='movieListTemplate'></template>
   </view>
 </view>
 <view class='search-panel'></view>
