@@ -49,11 +49,11 @@ Page({
       }
       app.globalData.g_isPlayingMusic = true;
     });
-    wx.onBackgroundAudioPause(function(){
+    wx.onBackgroundAudioPause(function () {
       var pages = getCurrentPages();
       var currentPage = pages[pages.length - 1];
-      if (currentPage.data.currentPostId == that.data.currentPostId){
-        if (app.globalData.g_currentMusicPostId == that.data.currentPostId){
+      if (currentPage.data.currentPostId == that.data.currentPostId) {
+        if (app.globalData.g_currentMusicPostId == that.data.currentPostId) {
           that.setData({
             isPlayingMusic: false
           });
@@ -61,7 +61,7 @@ Page({
       }
       app.globalData.g_isPlayingMusic = true;
     });
-    wx.onBackgroundAudioStop(function(){
+    wx.onBackgroundAudioStop(function () {
       that.setData({
         isPlayingMusic: false
       });
@@ -124,7 +124,23 @@ Page({
       icon: "success"
     })
   },
-  onShareTap: function(event){// 分享
-    
+  onShareTap: function (event) {// 分享
+    var itemList = [
+      "分享给微信好友",
+      "分享到朋友圈",
+      "分享到QQ",
+      "分享到微博"
+    ];
+    wx.showActionSheet({
+      itemList: itemList,
+      itemColor: '#405f80',
+      success: function (res) {
+        // res.cancel 用户是不是点击了取消按钮  res.tapIndex 数组元素的序号，从0开始
+        wx.showModal({
+          title: '用户' + itemList[res.tapIndex],
+          content: '用户是否取消？' + res.cancel + '现在无法实现分享功能，什么时候能支持呢',
+        })
+      }
+    });
   }
 })
