@@ -1,2 +1,11 @@
-<!--pages/movies/movies.wxml-->
-<text>pages/movies/movies.wxml</text>
+<view class='search'>
+  <icon type='search' class='search-img' size='13' color='#405f80'></icon>
+  <input type='text' placeholder='釜山行、夏有乔木雅望天堂' placeholder-class='placeholder'></input>
+  <image src='/images/icon/xx.png' class='xx-img'></image>
+</view>
+<view class='container'>
+  <view class='movies-template'>
+    
+  </view>
+</view>
+<view class='search-panel'></view>
