@@ -1,0 +1,132 @@
+page{
+  background: #eee;
+}
+.slide-image{
+  width: 100%;
+  height: 330rpx;
+}
+.fund-big{
+  width: 100%;
+  height: 402rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 20rpx;
+  padding: 40rpx 0;
+}
+.fund-title-name{
+  font-size: 38rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+}
+.fund-profit-type{
+  font-size: 24rpx;
+  color: #9d9d9d;
+  margin-bottom: 10rpx;
+}
+.fund-profit{
+  color: #fe7e3a;
+  font-size: 84rpx;
+  font-weight: bold;
+  margin-bottom: 18rpx;
+}
+.fund-profit-mark{
+  color: #fe7e3a;
+  font-size: 28rpx;
+  margin-left: 6rpx;
+}
+.fund-time{
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 34rpx;
+}
+.fund-tab{
+  flex-direction: row;
+}
+.fund-tab text{
+  color: #fe7e3a;
+  padding: 15rpx 20rpx;
+  border: 1px solid #fe7e3a;
+  margin-left: 10rpx;
+  border-radius: 15rpx;
+}
+.fund-title{
+  padding: 20rpx;
+  flex-direction: row;
+}
+.fund-title-line{
+  border-left: 4rpx solid #649af8;
+  margin-right: 10rpx;
+  vertical-align: middle
+}
+.fund-title-text{
+  color: #649af8;
+  font-size: 26rpx;
+}
+.fund-item{
+  width: 100%;
+  height: 266rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 0 40rpx;
+}
+.fund-item-left{
+  flex: 2;
+}
+.fund-item-title{
+  margin: 36rpx 0;
+}
+.fund-item-icon{
+  color: #3d81f6;
+  border: 1px solid #3d81f6;
+  border-radius: 4rpx;
+  padding: 7rpx 4rpx;
+  vertical-align: middle;
+  margin-right: 12rpx;
+  font-size: 12px;
+}
+.fund-item-name{
+  color: #333333;
+  font-size: 14px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.fund-item-code{
+  font-size: 12px;
+  margin-left: 10rpx;
+  vertical-align: middle;
+  color: #333333;
+}
+.fund-item-tabs{
+  flex-direction: column;
+}
+.fund-item-tab{
+  font-size: 12px;
+  color: #727272;
+  line-height: 40rpx;
+}
+.fund-item-right{
+  flex: 1;
+  padding: 82rpx;
+  flex-direction: column;
+}
+.fund-item-profit-num{
+  text-align: center;
+  font-size: 48rpx;
+  color: #fe7e3a;
+}
+.fund-item-profit-mark{
+  color: #fe7e3a;
+  font-size: 30rpx;
+  margin-left: 2px;
+}
+.fund-item-profit-text{
+  text-align: center;
+  font-size: 26rpx;
+  color: #999999;
+  margin-top: 20rpx;
+}

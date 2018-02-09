@@ -1,0 +1,45 @@
+<swiper indicator-dots='true' autoplay='true' interval="5000">
+  <swiper-item>
+    <image src="/images/fund/banner.png" class="slide-image" />
+  </swiper-item>
+  <swiper-item>
+    <image src="/images/fund/banner.png" class="slide-image" />
+  </swiper-item>
+</swiper>
+<view class='fund-big'>
+  <text class='fund-title-name'>超级现金宝</text>
+  <text class='fund-profit-type'>万份收益(元) 1.2061</text>
+  <text class='fund-profit'>4.5380<text class='fund-profit-mark'>%</text></text>
+  <text class='fund-time'>七日年化(02-08)</text>
+  <view class='fund-tab'>
+    <text>随充随用</text>
+    <text>实时取现</text>
+    <text>安全保障</text>
+  </view>
+</view>
+<view class='fund-title'>
+  <text class='fund-title-line'></text>
+  <text class='fund-title-text'>精选产品</text>
+</view>
+<block wx:for='{{fundList}}' wx:key='index'>
+  <view class='fund-item'>
+    <view class='fund-item-left'>
+      <view class='fund-item-title'>
+        <text class='fund-item-icon'>定</text>
+        <text class='fund-item-name'>{{item.fundAbbreviation}}</text>
+        <text class='fund-item-code'>({{item.itemCode}})</text>
+      </view>
+      <view class='fund-item-tabs'>
+        <view class='fund-item-tab'>· 攻守兼备，融合股债双重属性</view>
+        <view class='fund-item-tab'>· 转债扩容，市场流通性提升</view>
+        <view class='fund-item-tab'>· 估值回归合理水平</view>
+      </view>
+    </view>
+    <view class='fund-item-right'>
+      <view class='fund-item-profit-num'>{{item.price}}
+        <!-- <text class='fund-item-profit-mark'>%</text> -->
+      </view>
+      <view class='fund-item-profit-text'>单位净值</view>
+    </view>
+  </view>
+</block>

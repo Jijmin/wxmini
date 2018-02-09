@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/funds/fund",
     "pages/welcome/welcome",
     "pages/movies/movies",
     "pages/movies/more-movie/more-movie",
@@ -24,6 +25,11 @@
       "text": "电影",
       "iconPath": "images/tab/dianying.png",
       "selectedIconPath": "images/tab/dianying_hl.png"
+    }, {
+      "pagePath": "pages/funds/fund",
+      "text": "理财",
+      "iconPath": "images/tab/lc.png",
+      "selectedIconPath": "images/tab/lc_hl.png"
     }]
   }
 }
