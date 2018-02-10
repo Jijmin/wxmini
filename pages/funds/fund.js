@@ -3,6 +3,13 @@ Page({
   data: {
     fundList: []
   },
+  linkToDetail: function(event){
+    var fundcode = event.currentTarget.dataset.fundcode;
+    var fundname = event.currentTarget.dataset.fundname;
+    wx.navigateTo({
+      url: './fund/detail?fundCode=' + fundcode + '&fundName=' + fundname
+    })
+  },
   onLoad: function (options) {
     var that = this;
     var url ='https://fund.jd.com/getLeftTab?callback=jQuery18303846676212831843_1518154044798&sort=&theme=&industry=&op=%3A&man=&style=&years=&risk=&label=&sortType=31&page=1&q=&_=1518154045049';

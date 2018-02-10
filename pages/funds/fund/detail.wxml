@@ -1,0 +1,193 @@
+<view class='container'>
+  <view class='fund-tab'>
+    <text>指数型</text>
+    <text>004597</text>
+    <text class='fund-tab-last'>中风险</text>
+  </view>
+  <view class='fund-update-time'>
+    <text>数据更新</text>
+    <text>2018-02-08</text>
+  </view>
+  <view class='fund-tabs'>
+    <view class='fund-tabs-unit'>
+      <text class='fund-tabs-unit-num'>1.0912</text>
+      <text class='fund-tabs-text'>单位净值(元)</text>
+    </view>
+    <text class='fund-tabs-line'>|</text>
+    <view class='fund-tabs-change'>
+      <text class='fund-tabs-change-num'>-3.11%</text>
+      <text class='fund-tabs-text'>日涨跌幅</text>
+    </view>
+    <text class='fund-tabs-line'>|</text>
+    <view class='fund-tabs-year'>
+      <text class='fund-tabs-year-num'>+30.11%</text>
+      <text class='fund-tabs-text'>近一年涨跌幅</text>
+    </view>
+  </view>
+  <view class='fund-chart'>
+    <view class='fund-chart-title'>
+      <text class='fund-chart-title-text'>收益走势图</text>
+      <text class='fund-chart-title-history'>历史净值表</text>
+    </view>
+    <canvas canvas-id='fund-1M-chart' bindtouchstart="onTouchStart" bindtouchmove="onTouchMove" bindtouchend="onTouchEnd" bindtouchcancel="onTouchCancel" style="height:150px;width:100%;"></canvas>
+    <view class='fund-chart-tab'>
+      <text class='fund-chart-item active'>近一个月</text>
+      <text class='fund-chart-item'>近三个月</text>
+      <text class='fund-chart-item'>近半年</text>
+      <text>近一年</text>
+    </view>
+  </view>
+</view>
+<view class='fund-menu' catchtap='changeFundMenu'>
+  <text class='fund-menu-item {{flag=="fljg"?"fund-menu-active":""}}' data-menu='fljg'>费率结构</text>
+  <text class='fund-menu-item {{flag=="zcpz"?"fund-menu-active":""}}' data-menu='zcpz'>资产配置</text>
+  <text class='fund-menu-item {{flag=="jjjl"?"fund-menu-active":""}}' data-menu='jjjl'>基金经理</text>
+</view>
+<view class='fund-fljg-box' wx:if='{{flag=="fljg"}}'>
+  <view class='fund-fljg'>
+    <view>
+      <text class='fund-fljg-title-line'></text>
+      <text class='fund-fljg-title-text'>认购费率(前端)</text>
+    </view>
+    <view>
+      <view class='fund-fljg-table-line'></view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>认购金额{{char_lt}}100万元</text>
+        <text class='fund-fljg-table-right'>1.00%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>100万元{{char_lt_eq}}购买金额{{char_lt}}300万元</text>
+        <text class='fund-fljg-table-right'>0.60%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>300万元{{char_lt_eq}}购买金额{{char_lt}}500万元</text>
+        <text class='fund-fljg-table-right'>0.30%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>500万元{{char_lt_eq}}购买金额</text>
+        <text class='fund-fljg-table-right'>每笔1000元</text>
+      </view>
+    </view>
+  </view>
+  <view class='fund-fljg'>
+    <view>
+      <text class='fund-fljg-title-line'></text>
+      <text class='fund-fljg-title-text'>申购费率(前端)</text>
+    </view>
+    <view>
+      <view class='fund-fljg-table-line'></view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>购买金额{{char_lt}}100万元</text>
+        <text class='fund-fljg-table-right'>1.20%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>100万元{{char_lt_eq}}购买金额{{char_lt}}300万元</text>
+        <text class='fund-fljg-table-right'>0.80%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>300万元{{char_lt_eq}}购买金额{{char_lt}}500万元</text>
+        <text class='fund-fljg-table-right'>0.40%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>500万元{{char_lt_eq}}购买金额</text>
+        <text class='fund-fljg-table-right'>每笔1000元</text>
+      </view>
+    </view>
+  </view>
+  <view class='fund-fljg'>
+    <view>
+      <text class='fund-fljg-title-line'></text>
+      <text class='fund-fljg-title-text'>赎回费率(前端)</text>
+    </view>
+    <view>
+      <view class='fund-fljg-table-line'></view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>购买金额{{char_lt}}100万元</text>
+        <text class='fund-fljg-table-right'>1.20%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>100万元{{char_lt_eq}}购买金额{{char_lt}}300万元</text>
+        <text class='fund-fljg-table-right'>0.80%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>300万元{{char_lt_eq}}购买金额{{char_lt}}500万元</text>
+        <text class='fund-fljg-table-right'>0.40%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>500万元{{char_lt_eq}}购买金额</text>
+        <text class='fund-fljg-table-right'>每笔1000元</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='fund-zcpz-box' wx:if='{{flag=="zcpz"}}'>
+  <view class='fund-fljg'>
+    <view>
+      <text class='fund-fljg-title-line'></text>
+      <text class='fund-fljg-title-text'>前十名持仓</text>
+    </view>
+    <text class='fund-fljg-title-time'>截止时间：2017-12-31</text>
+    <view>
+      <view class='fund-fljg-table-line'></view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>名称代码</text>
+        <text class='fund-fljg-table-right'>占净值比例</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>招商银行 <text class='fund-fljg-table-code'>(600036)</text></text>
+        <text class='fund-fljg-table-right'>0.25%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>平安银行 <text class='fund-fljg-table-code'>(000001)</text></text>
+        <text class='fund-fljg-table-right'>0.22%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>兴业银行 <text class='fund-fljg-table-code'>(S24422)</text></text>
+        <text class='fund-fljg-table-right'>0.17%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>民生银行 <text class='fund-fljg-table-code'>(600016)</text></text>
+        <text class='fund-fljg-table-right'>0.16%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>交通银行 <text class='fund-fljg-table-code'>(S27821)</text></text>
+        <text class='fund-fljg-table-right'>0.14%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>浦发银行 <text class='fund-fljg-table-code'>(600000)</text></text>
+        <text class='fund-fljg-table-right'>0.12%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>农业银行 <text class='fund-fljg-table-code'>(S3620246)</text></text>
+        <text class='fund-fljg-table-right'>0.12%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>工商银行 <text class='fund-fljg-table-code'>(S20125)</text></text>
+        <text class='fund-fljg-table-right'>0.11%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>招商银行 <text class='fund-fljg-table-code'>(600036)</text></text>
+        <text class='fund-fljg-table-right'>0.08%</text>
+      </view>
+      <view class='fund-fljg-table-item'>
+        <text class='fund-fljg-table-left'>宁波银行 <text class='fund-fljg-table-code'>(S30585)</text></text>
+        <text class='fund-fljg-table-right'>0.08%</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='fund-jjjl-box' wx:if='{{flag=="jjjl"}}'>
+  <view class='fund-fljg'>
+    <view class='fund-jjjl'>
+      <image class='fund-jjjl-image' src='/images/fund/fund-jjjl.png'></image>
+      <text class='fund-jjjl-name'>杨烨超</text>
+    </view>
+    <view>
+      <text class='fund-fljg-title-line'></text>
+      <text class='fund-fljg-title-text'>基本介绍</text>
+    </view>
+    <text class='fund-jjjl-desc'>
+      杨烨超，中国国籍，硕士，多年证券投资管理从业年限，具有基金从业资格。2010年7月加入光大保德信基金管理有限公司，先后担任市场部产品助理、产品经理（负责产品设计研究等），2014年3月任固定收益部研究员；2015年10月获得光大保德信中高等级债券型证券投资基金（拟发行）的基金经理任职资格；2015年11月27日任光大保德信耀钱包货币市场基金的基金经理；2016年2月18代为管理光大保德信信用添益债券型证券投资基金及光大保德信增利收益债券型证券投资基金；2016年3月3日任光大保德信睿鑫灵活配置混合型证券投资基金的基金经理。2016年6月7日至2016年7月6日代任光大保德信信用添益债券型证券投资基金、光大保德信增利收益债券型证券投资基金的基金经理。2016年8月19日任光大保德信永鑫灵活配置混合型证券投资基金的基金经理。2016年9月2日任光大保德信恒利纯债债券型证券投资基金的基金经理。2016年10月17日任光大保德信铭鑫灵活配置混合型证券投资基金的基金经理。2016年12月15日任光大保德信诚鑫灵活配置混合型证券投资基金的基金经理。2017年2月17日任光大保德信永利纯债债券型证券投资基金的基金经理。2017年4月8日任光大保德信货币市场基金的基金经理。2017年8月4日任光大保德信中高等级债券型证券投资基金的基金经理。2017年9月27日任光大保德信尊富18个月定期开放债券型证券投资基金的基金经理。
+    </text>
+  </view>
+</view>
