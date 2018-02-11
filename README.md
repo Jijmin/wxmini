@@ -31,6 +31,7 @@ $ git clone https://github.com/Jijmin/wxmini.git
 ### 体验版
 获取数据的接口是http的，需要开启调试模式才能获取到http的数据
 ![体验二维码](./screenshot/code.jpg)
+![调试](./screenshot/console.png)
 
 ### 小程序实现的功能
 1. 设置全局的最上层导航栏的颜色基准
